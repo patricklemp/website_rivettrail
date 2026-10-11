@@ -49,5 +49,4 @@ Wird das kleine Inline-Skript im `<head>` geändert, berechnet `build.py` den CS
 
 ## Vor dem Livegang
 
-- Impressum und Datenschutz: Platzhalter in eckigen Klammern ausfüllen und die Entwurfshinweise entfernen (`tools/generator/impressum.body.html`, `datenschutz.body.html`, `en/legal-notice.body.html`, `en/privacy.body.html`).
-- Antwortzeit „innerhalb von zwei Werktagen“ bestätigen.
+- Impressum und Datenschutz: allgemeine Vorlagen, Angaben in [eckigen Klammern] ausfüllen (Name, Rechtsform, Anschrift, Vertretung, Telefon, ggf. Register und USt-IdNr.) und rechtlich prüfen lassen. Dateien: `tools/generator/impressum.body.html`, `datenschutz.body.html`, `en/legal-notice.body.html`, `en/privacy.body.html`.
