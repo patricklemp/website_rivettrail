@@ -1,0 +1,369 @@
+<main id="content">
+
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-deco" aria-hidden="true">
+      <svg class="hero-gears" viewBox="0 0 880 880" width="880" height="880" focusable="false">
+        <path class="gear" d="{{GEAR_SMALL}}"/>
+        <path class="gear" d="{{GEAR_BIG}}"/>
+      </svg>
+    </div>
+    <div class="wrap hero-inner">
+      <div class="hero-copy">
+        <p class="mark">For maintenance, plant management and engineering</p>
+        <h1 id="hero-title"><span class="h1-small">Your machine knowledge<span class="vh">.</span></span> <span class="h1-big">Connected and on hand<span class="dot">.</span></span></h1>
+        <p class="hero-lead">RivetTrail links machines, parts, documents, faults and contacts in one knowledge base, fed from ERP, MES, Excel and manuals. <strong>Every question answered, every answer with its source.</strong></p>
+        <div class="hero-actions">
+          <a class="btn btn-primary btn-lg" href="#contact">Request a pilot call</a>
+          <a class="link-dl" href="{{ROOT}}downloads/RivetTrail_Onepager_EN.pdf" download="RivetTrail_One-pager_EN.pdf"><svg class="icon-dl" viewBox="0 0 20 20" width="20" height="20" aria-hidden="true" focusable="false"><path d="M10 3v10M5.5 8.5 10 13l4.5-4.5M4 16.5h12"/></svg><span>Download <span class="nowrap">one-pager (PDF, 69&nbsp;KB)</span></span></a>
+        </div>
+      </div>
+
+      <!-- Demo values: CNC-003, CNC-004, CNC-007, Spindle HSK-A63 and A. Weber are invented examples. -->
+      <figure class="net">
+        <svg class="net-svg net-wide" viewBox="0 0 560 400" width="560" height="400" role="img" aria-label="Example of a knowledge network: machine CNC-003 is linked to the installed part Spindle HSK-A63, page 42 of the manual, the last fault, the responsible contact A. Weber and machine CNC-004, which it feeds. Spindle HSK-A63 is also installed in machine CNC-007.">
+          <g class="net-lines">
+            <line x1="270" y1="200" x2="190" y2="74"/>
+            <line x1="270" y1="200" x2="430" y2="66"/>
+            <line x1="270" y1="200" x2="100" y2="334"/>
+            <line x1="270" y1="200" x2="300" y2="352"/>
+            <line x1="270" y1="200" x2="496" y2="264"/>
+          </g>
+          <line class="net-dash" x1="130" y1="94" x2="62" y2="198"/>
+          <g class="net-labels">
+            <text x="236" y="128">installed</text>
+            <text x="370" y="130">docs</text>
+            <text x="296" y="296">responsible</text>
+            <text x="388" y="222">feeds</text>
+            <text class="net-label-teal" x="118" y="132">also</text>
+            <text class="net-label-teal" x="118" y="151">installed in</text>
+          </g>
+
+          <g class="chip">
+            <rect x="102" y="54" width="176" height="40" rx="20"/>
+            <circle class="t-part" cx="124" cy="74" r="5"/>
+            <text x="138" y="79">Spindle HSK-A63</text>
+          </g>
+          <g class="chip">
+            <rect x="358" y="46" width="137" height="40" rx="20"/>
+            <circle class="t-doc" cx="380" cy="66" r="5"/>
+            <text x="394" y="71">Manual, p. 42</text>
+          </g>
+          <g class="chip">
+            <rect x="42" y="314" width="110" height="40" rx="20"/>
+            <circle class="t-fault" cx="64" cy="334" r="5"/>
+            <text x="78" y="339">Last fault</text>
+          </g>
+          <g class="chip">
+            <rect x="242" y="332" width="116" height="40" rx="20"/>
+            <circle class="t-person" cx="264" cy="352" r="5"/>
+            <text x="278" y="357">A. Weber</text>
+          </g>
+
+          <g class="plate plate-main">
+            <rect x="186" y="158" width="168" height="84" rx="6"/>
+            <circle class="rivet" cx="197" cy="169" r="3.5"/><circle class="rivet" cx="343" cy="169" r="3.5"/>
+            <circle class="rivet" cx="197" cy="231" r="3.5"/><circle class="rivet" cx="343" cy="231" r="3.5"/>
+            <text class="plate-kind" x="270" y="190">Machine</text>
+            <text class="plate-id" x="270" y="219">CNC-003</text>
+          </g>
+          <g class="plate">
+            <rect x="440" y="236" width="112" height="56" rx="5"/>
+            <circle class="rivet" cx="449" cy="245" r="3"/><circle class="rivet" cx="543" cy="245" r="3"/>
+            <circle class="rivet" cx="449" cy="283" r="3"/><circle class="rivet" cx="543" cy="283" r="3"/>
+            <text class="plate-kind" x="496" y="258">Machine</text>
+            <text class="plate-id plate-id-s" x="496" y="279">CNC-004</text>
+          </g>
+          <g class="plate">
+            <rect x="6" y="198" width="112" height="56" rx="5"/>
+            <circle class="rivet" cx="15" cy="207" r="3"/><circle class="rivet" cx="109" cy="207" r="3"/>
+            <circle class="rivet" cx="15" cy="245" r="3"/><circle class="rivet" cx="109" cy="245" r="3"/>
+            <text class="plate-kind" x="62" y="220">Machine</text>
+            <text class="plate-id plate-id-s" x="62" y="241">CNC-007</text>
+          </g>
+        </svg>
+
+        <svg class="net-svg net-narrow" viewBox="0 0 340 500" width="340" height="500" role="img" aria-label="Example of a knowledge network: machine CNC-003 is linked to the installed part Spindle HSK-A63, page 42 of the manual, the last fault, the responsible contact A. Weber and machine CNC-004, which it feeds. Spindle HSK-A63 is also installed in machine CNC-007.">
+          <g class="net-lines">
+            <line x1="225" y1="250" x2="130" y2="22"/>
+            <line x1="296" y1="250" x2="290" y2="22"/>
+            <line x1="215" y1="250" x2="80" y2="362"/>
+            <line x1="215" y1="250" x2="135" y2="472"/>
+            <line x1="286" y1="250" x2="284" y2="380"/>
+          </g>
+          <line class="net-dash" x1="36" y1="44" x2="36" y2="150"/>
+          <g class="net-labels">
+            <text x="200" y="152">installed</text>
+            <text x="300" y="126">docs</text>
+            <text x="160" y="434">responsible</text>
+            <text x="278" y="331" text-anchor="end">feeds</text>
+            <text class="net-label-teal" x="46" y="86">also</text>
+            <text class="net-label-teal" x="46" y="109">installed in</text>
+          </g>
+
+          <g class="chip">
+            <rect x="0" y="0" width="166" height="44" rx="22"/>
+            <circle class="t-part" cx="22" cy="22" r="5.5"/>
+            <text x="37" y="27">Spindle HSK-A63</text>
+          </g>
+          <g class="chip">
+            <rect x="196" y="0" width="144" height="44" rx="22"/>
+            <circle class="t-doc" cx="218" cy="22" r="5.5"/>
+            <text x="233" y="27">Manual, p. 42</text>
+          </g>
+          <g class="chip">
+            <rect x="0" y="340" width="116" height="44" rx="22"/>
+            <circle class="t-fault" cx="22" cy="362" r="5.5"/>
+            <text x="37" y="367">Last fault</text>
+          </g>
+          <g class="chip">
+            <rect x="70" y="452" width="112" height="44" rx="22"/>
+            <circle class="t-person" cx="92" cy="474" r="5.5"/>
+            <text x="107" y="479">A. Weber</text>
+          </g>
+
+          <g class="plate plate-main">
+            <rect x="155" y="206" width="170" height="88" rx="6"/>
+            <circle class="rivet" cx="166" cy="217" r="4"/><circle class="rivet" cx="166" cy="283" r="4"/><circle class="rivet" cx="314" cy="217" r="4"/><circle class="rivet" cx="314" cy="283" r="4"/>
+            <text class="plate-kind" x="240" y="240">Machine</text>
+            <text class="plate-id" x="240" y="272">CNC-003</text>
+          </g>
+          <g class="plate">
+            <rect x="228" y="350" width="112" height="60" rx="5"/>
+            <circle class="rivet" cx="237" cy="359" r="3.5"/><circle class="rivet" cx="237" cy="401" r="3.5"/><circle class="rivet" cx="331" cy="359" r="3.5"/><circle class="rivet" cx="331" cy="401" r="3.5"/>
+            <text class="plate-kind" x="284" y="374">Machine</text>
+            <text class="plate-id plate-id-s" x="284" y="397">CNC-004</text>
+          </g>
+          <g class="plate">
+            <rect x="0" y="150" width="112" height="60" rx="5"/>
+            <circle class="rivet" cx="9" cy="159" r="3.5"/><circle class="rivet" cx="9" cy="201" r="3.5"/><circle class="rivet" cx="103" cy="159" r="3.5"/><circle class="rivet" cx="103" cy="201" r="3.5"/>
+            <text class="plate-kind" x="56" y="174">Machine</text>
+            <text class="plate-id plate-id-s" x="56" y="197">CNC-007</text>
+          </g>
+        </svg>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="questions" aria-labelledby="questions-title">
+    <div class="wrap split split-fragen">
+      <div class="split-copy">
+        <p class="mark">The core</p>
+        <h2 id="questions-title" class="h-section"><span class="hl">Ask</span>, don’t search<span class="dot">.</span></h2>
+        <p class="lead">Because everything in RivetTrail is linked, it also answers questions that span several machines. Every answer shows where it comes from.</p>
+        <div class="ask-more">
+          <p class="ask-more-label" id="ask-more-label">You can also ask:</p>
+          <ul class="ask-chips" role="list" aria-labelledby="ask-more-label">
+            <li><button type="button" class="q-chip" aria-pressed="true">Which machines have the <span class="nowrap">HSK-A63</span> spindle installed?</button></li>
+            <li><button type="button" class="q-chip" aria-pressed="false">What stops if CNC-003 goes down?</button></li>
+            <li><button type="button" class="q-chip" aria-pressed="false">Who last changed the control system?</button></li>
+            <li><button type="button" class="q-chip" aria-pressed="false">Which manuals apply to Line B?</button></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Demo values: questions, results, data and sources are an invented example (matching the knowledge network in the hero).
+           Without JS only the first question is visible; the other results are hidden (.is-off). -->
+      <div class="ask card">
+        <p class="mark">Example</p>
+        <div class="ask-field">
+          <label class="vh" for="ask-q">Example question</label>
+          <svg class="ask-icon" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg>
+          <textarea id="ask-q" class="ask-input" rows="2" readonly>Which machines have the HSK-A63 spindle installed?</textarea>
+        </div>
+        <div class="ask-out">
+          <div class="ask-result" data-q="Which machines have the HSK-A63 spindle installed?">
+            <p class="ask-count"><span class="ask-num">2 machines</span> <span>found</span></p>
+            <ul class="ask-hits" role="list">
+              <li><span class="hit-head"><span class="hit-id">CNC-003</span><span class="hit-place">Building 2, Line B</span></span><span class="badge"><span class="vh">Source: </span>ERP parts list</span></li>
+              <li><span class="hit-head"><span class="hit-id">CNC-007</span><span class="hit-place">Building 4</span></span><span class="badge"><span class="vh">Source: </span>Service report</span></li>
+            </ul>
+          </div>
+          <div class="ask-result is-off" data-q="What stops if CNC-003 goes down?">
+            <p class="ask-count"><span class="ask-num">1 machine</span> <span>stops</span></p>
+            <ul class="ask-hits" role="list">
+              <li><span class="hit-head"><span class="hit-id">CNC-004</span><span class="hit-place">downstream, fed by CNC-003</span></span><span class="badge"><span class="vh">Source: </span>Machine links</span></li>
+              <li><span class="hit-head"><span class="hit-id">CNC-007</span><span class="hit-place">backup machine, Building 4</span></span><span class="badge"><span class="vh">Source: </span>MES line plan</span></li>
+            </ul>
+          </div>
+          <div class="ask-result is-off" data-q="Who last changed the control system?">
+            <p class="ask-count"><span>Last changed by</span> <span class="ask-num">A. Weber</span></p>
+            <ul class="ask-hits" role="list">
+              <li><span class="hit-head"><span class="hit-id">CNC-003</span><span class="hit-place">control system changed, 12 Sep 2026</span></span><span class="badge"><span class="vh">Source: </span>Change history</span></li>
+              <li><span class="hit-head"><span class="hit-person">T. Berger</span><span class="hit-place">approved the change</span></span><span class="badge"><span class="vh">Source: </span>Approval</span></li>
+            </ul>
+          </div>
+          <div class="ask-result is-off" data-q="Which manuals apply to Line B?">
+            <p class="ask-count"><span class="ask-num">2 manuals</span> <span>found</span></p>
+            <ul class="ask-hits" role="list">
+              <li><span class="hit-head"><span class="hit-id">CNC-003</span><span class="hit-place">Manual, p. 42, spindle change</span></span><span class="badge"><span class="vh">Source: </span>Document store</span></li>
+              <li><span class="hit-head"><span class="hit-id">CNC-004</span><span class="hit-place">Operating manual</span></span><span class="badge"><span class="vh">Source: </span>Manufacturer PDF</span></li>
+            </ul>
+          </div>
+        </div>
+        <p class="vh" id="ask-live" role="status"></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="comparison" aria-labelledby="comparison-title">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="mark">When it counts</p>
+          <h2 id="comparison-title" class="h-section">The machine is down. Where do the <span class="hl">answers</span> come from?</h2>
+        </div>
+        <p class="section-aside">Every minute spent searching is a minute of downtime. This is the difference.</p>
+      </div>
+
+      <div class="table-wrap">
+      <div class="table-scroll" tabindex="0" role="region" aria-label="Comparison: today versus with RivetTrail, scrolls horizontally">
+        <table class="compare">
+          <caption class="vh">Where you find answers today and with RivetTrail</caption>
+          <thead>
+            <tr>
+              <th scope="col">Question</th>
+              <th scope="col" class="col-today">Today</th>
+              <th scope="col" class="col-rt">With RivetTrail</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Which part is installed?</th>
+              <td class="col-today"><svg class="i-x" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="m4 4 8 8m0-8-8 8"/></svg>ERP, network drive, service report</td>
+              <td class="col-rt"><svg class="i-check" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="m3 8.5 3.2 3.2L13 4.8"/></svg>Straight from the knowledge base, with its source.</td>
+            </tr>
+            <tr>
+              <th scope="row">What was changed last?</th>
+              <td class="col-today"><svg class="i-x" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="m4 4 8 8m0-8-8 8"/></svg>Shift log, emails, asking around</td>
+              <td class="col-rt"><svg class="i-check" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="m3 8.5 3.2 3.2L13 4.8"/></svg>History with date and supporting record.</td>
+            </tr>
+            <tr>
+              <th scope="row">Who knows this machine?</th>
+              <td class="col-today"><svg class="i-x" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="m4 4 8 8m0-8-8 8"/></svg>Ringing round</td>
+              <td class="col-rt"><svg class="i-check" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="m3 8.5 3.2 3.2L13 4.8"/></svg>A named contact for every machine.</td>
+            </tr>
+            <tr>
+              <th scope="row">What depends on it?</th>
+              <td class="col-today"><svg class="i-x" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="m4 4 8 8m0-8-8 8"/></svg>The foreman knows</td>
+              <td class="col-rt"><svg class="i-check" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true" focusable="false"><path d="m3 8.5 3.2 3.2L13 4.8"/></svg>Upstream and downstream machines, backup machine, utilities.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="benefits" aria-labelledby="benefits-title">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="mark">What you gain</p>
+          <h2 id="benefits-title" class="h-section">Why it <span class="hl">pays off</span><span class="dot">.</span></h2>
+        </div>
+        <p class="section-aside">Less searching, less guessing, less reliance on individuals.</p>
+      </div>
+
+      <ul class="benefits" role="list">
+        <li class="benefit">
+          <span class="benefit-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" focusable="false"><circle cx="12" cy="13.5" r="7.5"/><path d="M12 9.5v4l2.6 2.6M9.5 2.5h5M12 2.5V6"/></svg></span>
+          <h3>Shorter downtime</h3>
+          <p class="benefit-text">Troubleshooting starts straight away, not with a hunt for documents.</p>
+          <p class="benefit-num">67%</p>
+          <p class="benefit-fact">of industrial companies have unplanned downtime every month.</p>
+          <p class="benefit-src"><a href="https://new.abb.com/news/de/detail/116577/ungeplante-stillstande-kosten-deutsche-unternehmen-147000-eur-pro-stunde" rel="noopener noreferrer" hreflang="de">Source: ABB, 2023</a></p>
+        </li>
+        <li class="benefit">
+          <span class="benefit-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" focusable="false"><path d="M12 2.8 19.5 6v5.2c0 4.6-3.1 8.6-7.5 10-4.4-1.4-7.5-5.4-7.5-10V6Z"/><path d="m8.6 12 2.4 2.4 4.6-4.8"/></svg></span>
+          <h3>Reliable data</h3>
+          <p class="benefit-text">No duplicates, no silent errors. Conflicts are flagged.</p>
+          <p class="benefit-num">100%</p>
+          <p class="benefit-fact">of entries with source and change history.</p>
+          <p class="benefit-src">Product principle</p>
+        </li>
+        <li class="benefit">
+          <span class="benefit-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="26" height="26" focusable="false"><circle cx="9" cy="8" r="3.4"/><path d="M2.8 20c0-3.5 2.8-6.2 6.2-6.2s6.2 2.7 6.2 6.2"/><circle cx="17.2" cy="9" r="2.6"/><path d="M16.4 14c2.8.3 4.8 2.6 4.8 5.6"/></svg></span>
+          <h3>Knowledge stays</h3>
+          <p class="benefit-text">What experienced colleagues know stays in the system. Even after they retire.</p>
+          <p class="benefit-num">13.4&nbsp;million</p>
+          <p class="benefit-fact">people in Germany’s workforce will reach retirement age by 2039.</p>
+          <p class="benefit-src"><a href="https://www.presseportal.de/pm/32102/6109686" rel="noopener noreferrer" hreflang="de">Source: Destatis, 2025</a></p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="setup" aria-labelledby="setup-title">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <p class="mark">New machine?</p>
+          <h2 id="setup-title" class="h-section">How the <span class="hl">knowledge</span> gets in<span class="dot">.</span></h2>
+        </div>
+        <p class="section-aside">Nobody has to key in serial numbers by hand. Duplicate or conflicting entries are caught before they reach the knowledge base.</p>
+      </div>
+
+      <ol class="steps" role="list">
+        <li class="step">
+          <span class="node" aria-hidden="true"></span>
+          <span class="step-num" aria-hidden="true">01</span>
+          <h3>Upload</h3>
+          <p>Nameplate photo, reports, lists, exports.</p>
+        </li>
+        <li class="step">
+          <span class="node" aria-hidden="true"></span>
+          <span class="step-num" aria-hidden="true">02</span>
+          <h3>Recognise</h3>
+          <p>Manufacturer, type, serial number, parts. Every entry with its source.</p>
+        </li>
+        <li class="step">
+          <span class="node" aria-hidden="true"></span>
+          <span class="step-num" aria-hidden="true">03</span>
+          <h3>Link</h3>
+          <p>Matching parts, related documents, neighbouring machines and contacts are connected.</p>
+        </li>
+        <li class="step step-last">
+          <span class="node node-end" aria-hidden="true"><span class="node-label">In the knowledge base</span></span>
+          <span class="step-num" aria-hidden="true">04</span>
+          <h3>Check and approve</h3>
+          <p>Duplicates and conflicts are reported. Optionally, a second person signs off.</p>
+          <span class="node-label node-label-m" aria-hidden="true">In the knowledge base</span>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section section-contact" id="contact" aria-labelledby="contact-title">
+    <div class="contact-deco" aria-hidden="true">
+      <svg class="contact-gear" viewBox="0 0 600 600" width="600" height="600" focusable="false"><path class="gear" d="{{GEAR_ONE}}"/></svg>
+    </div>
+    <div class="wrap split split-contact">
+      <div class="split-copy">
+        <p class="mark">We are looking for pilot sites</p>
+        <h2 id="contact-title" class="h-section">Start with your <span class="hl nowrap">10 most critical</span> machines<span class="dot">.</span></h2>
+        <p class="lead">Built from the files you already have. No IT project, no system access.</p>
+        <h3 class="pilot-title">How the pilot works</h3>
+        <ol class="timeline" role="list">
+          <li>You send exports and documents for 10 machines.</li>
+          <li>We build the knowledge base from them and show duplicates and conflicts.</li>
+          <li>Together we decide whether it helps you.</li>
+        </ol>
+      </div>
+
+      <div class="contact-plate">
+        <span class="rivet rivet-tl" aria-hidden="true"></span><span class="rivet rivet-tr" aria-hidden="true"></span>
+        <span class="rivet rivet-bl" aria-hidden="true"></span><span class="rivet rivet-br" aria-hidden="true"></span>
+        <p class="mark">Contact</p>
+        <h3 class="plate-title">Pilot call, 30&nbsp;minutes</h3>
+        <a class="btn btn-primary btn-lg btn-block" href="mailto:kontakt@rivettrail.de?subject=RivetTrail%20pilot%20call&amp;body=Hello%2C%0D%0A%0D%0AWe%20are%20interested%20in%20a%20pilot%20call.%0D%0A%0D%0ACompany%3A%20%0D%0ANumber%20of%20machines%3A%20%0D%0AERP%20system%20in%20use%3A%20%0D%0A">Request a pilot call</a>
+        <div class="email-row">
+          <span class="email" id="email">kontakt@rivettrail.de</span>
+          <button type="button" class="btn-copy" data-copy="kontakt@rivettrail.de" aria-describedby="email" hidden>Copy</button>
+        </div>
+        <p class="copy-status" role="status" aria-live="polite"></p>
+        <p class="contact-note">We reply within two working days.<!-- PLACEHOLDER: confirm response time --></p>
+      </div>
+    </div>
+  </section>
+
+</main>

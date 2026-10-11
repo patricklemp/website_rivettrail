@@ -1,0 +1,9 @@
+# Cloudflare Pages: Header für alle Antworten (erzeugt von build.py)
+# Der sha256-Wert erlaubt das einzige Inline-Skript im <head>: document.documentElement.classList.add("js")
+/*
+  Content-Security-Policy: default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self' 'sha256-qOhFsq0QMV2REqNwk5hGH5bZE9SkX6gt6yeyKdYPv+U='; font-src 'self'; base-uri 'self'; form-action 'none'; frame-ancestors 'none'
+  X-Frame-Options: DENY
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=()
+  Strict-Transport-Security: max-age=31536000
+  Cross-Origin-Opener-Policy: same-origin
+  ! Access-Control-Allow-Origin

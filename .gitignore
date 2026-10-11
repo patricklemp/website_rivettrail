@@ -1,0 +1,9 @@
+# lokale Sicherungen und Altstände, nicht ausliefern
+_archiv/
+
+# System und Werkzeuge
+.DS_Store
+node_modules/
+__pycache__/
+tools/onepager/*.html
+tools/onepager/out/

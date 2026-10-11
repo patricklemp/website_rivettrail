@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://rivettrail.de/</loc>
+    <lastmod>2026-10-11</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://rivettrail.de/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rivettrail.de/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rivettrail.de/"/>
+  </url>
+  <url>
+    <loc>https://rivettrail.de/en/</loc>
+    <lastmod>2026-10-11</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://rivettrail.de/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rivettrail.de/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rivettrail.de/"/>
+  </url>
+  <url>
+    <loc>https://rivettrail.de/impressum</loc>
+    <lastmod>2026-10-11</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://rivettrail.de/impressum"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rivettrail.de/en/legal-notice"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rivettrail.de/impressum"/>
+  </url>
+  <url>
+    <loc>https://rivettrail.de/en/legal-notice</loc>
+    <lastmod>2026-10-11</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://rivettrail.de/impressum"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rivettrail.de/en/legal-notice"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rivettrail.de/impressum"/>
+  </url>
+  <url>
+    <loc>https://rivettrail.de/datenschutz</loc>
+    <lastmod>2026-10-11</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://rivettrail.de/datenschutz"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rivettrail.de/en/privacy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rivettrail.de/datenschutz"/>
+  </url>
+  <url>
+    <loc>https://rivettrail.de/en/privacy</loc>
+    <lastmod>2026-10-11</lastmod>
+    <xhtml:link rel="alternate" hreflang="de" href="https://rivettrail.de/datenschutz"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://rivettrail.de/en/privacy"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://rivettrail.de/datenschutz"/>
+  </url>
+</urlset>
