@@ -49,4 +49,4 @@ Wird das kleine Inline-Skript im `<head>` geändert, berechnet `build.py` den CS
 
 ## Vor dem Livegang
 
-- Impressum und Datenschutz: allgemeine Vorlagen, Angaben in [eckigen Klammern] ausfüllen (Vor- und Nachname, Anschrift, Telefon); nach Firmengründung Firma, Rechtsform, Vertretung, Registereintrag und ggf. USt-IdNr. ergänzen und rechtlich prüfen lassen. Dateien: `tools/generator/impressum.body.html`, `datenschutz.body.html`, `en/legal-notice.body.html`, `en/privacy.body.html`.
+- Impressum und Datenschutz: allgemeine Vorlagen, ausgefüllt (Stand vor Firmengründung). Rechtlich prüfen lassen; nach Firmengründung Firma, Rechtsform, Geschäftsanschrift, Vertretung, Registereintrag und ggf. USt-IdNr. ergänzen (`tools/generator/impressum.body.html`, `datenschutz.body.html`, `en/legal-notice.body.html`, `en/privacy.body.html`).
