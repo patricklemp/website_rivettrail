@@ -7,6 +7,10 @@ const path = require('path');
 const { chromium } = require('playwright-core');
 
 const FONTS = path.join(__dirname, 'fonts');
+const ASSETS = path.join(__dirname, '../../site/assets');
+const svgOf = (f) => fs.readFileSync(path.join(ASSETS, f), 'utf8').replace(/<metadata[\s\S]*?<\/metadata>/g, '').replace(/<\?xml[^>]*>/, '').trim();
+const LOGO_FULL = svgOf('logo.svg');
+const LOGO_MARK_INV = svgOf('logo-mark-inverted.svg');
 const OUT = process.argv[2] || path.join(__dirname, '../../site/downloads');
 const CHROME = process.env.CHROME_PATH;
 if (!CHROME) { console.error('Bitte CHROME_PATH setzen (Pfad zu Chrome/Chromium).'); process.exit(1); }
@@ -31,7 +35,8 @@ const I = {
 
 function html(t) {
   const ff = (fam, file, w) => `@font-face{font-family:"${fam}";src:url("file://${FONTS}/${file}") format("woff2");font-weight:${w};font-style:normal;font-display:block;}`;
-  const logo = `<span class="logo"><span class="logo-sq" aria-hidden="true">R</span><span class="logo-word">RivetTrail</span></span>`;
+  // Gleiches Logo wie auf der Website (site/assets): Kachel mit „R“ und türkisem Punkt
+  const logo = `<span class="logo" role="img" aria-label="RivetTrail">${LOGO_FULL}</span>`;
   const chip = (txt, cls = '') => `<span class="chip ${cls}">${cls === 'chip-warn' ? I.alert : I.doc}${txt}</span>`;
   return `<!doctype html>
 <html lang="${t.lang}">
@@ -77,9 +82,9 @@ strong { font-weight: 600; color: var(--ink); }
 /* Kopfband */
 .band { background: var(--band); border-bottom: 1px solid var(--line); padding: 36px 56px 0; height: var(--band-h); }
 .top { display: flex; justify-content: space-between; align-items: center; height: 26px; }
-.logo { display: flex; align-items: center; gap: 10px; }
-.logo-sq { width: 26px; height: 26px; border-radius: 5.5px; background: var(--ink); color: #fff; font: 700 13px/26px var(--sans); text-align: center; }
-.logo-word { font: 700 17px/1 var(--sans); color: var(--ink); letter-spacing: -0.005em; }
+.logo { display: flex; align-items: center; }
+.logo svg { display: block; height: 26px; width: auto; }
+.logo-mark svg { display: block; width: 17px; height: 17px; }
 .top-note { font: 400 12.5px/1 var(--sans); color: var(--gray); }
 .eyebrow { margin-top: var(--eyebrow-mt); font: 600 11px/1.2 var(--sans); letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
 h1 { margin-top: 15px; font: 700 40px/44px var(--sans); letter-spacing: -0.02em; color: var(--ink); }
@@ -96,7 +101,6 @@ h2 { font: 600 19px/26px var(--sans); color: var(--ink); letter-spacing: -0.005e
 .q p { font: 400 13px/18px var(--sans); color: var(--gray); margin-top: 3px; }
 .ex { border: 1px solid var(--line); border-radius: 9px; overflow: hidden; }
 .ex-head { background: var(--dark); color: #fff; display: flex; align-items: center; gap: 8px; padding: 0 14px; height: 37px; }
-.ex-head .logo-sq { width: 17px; height: 17px; border-radius: 3.5px; background: #fff; color: var(--dark); font: 700 9.5px/17px var(--sans); }
 .ex-head b { font: 600 13px/1 var(--sans); }
 .ex-head .id { font: 500 13px/1 var(--mono); color: var(--num); }
 .ex-head .tag { margin-left: auto; font: 400 11px/1 var(--sans); color: #B6BCC6; }
@@ -185,7 +189,7 @@ sup { font-size: 0.68em; line-height: 0; vertical-align: 0.45em; }
           ${t.rows.map(r => `<div class="q" style="height:${r[2]}px"><h3>${r[0]}</h3><p>${r[1]}</p></div>`).join('\n          ')}
         </div>
         <div class="ex">
-          <div class="ex-head"><span class="logo-sq" aria-hidden="true">R</span><b>${t.exKb}</b><span class="id">CNC-003</span><span class="tag">${t.exTag}</span></div>
+          <div class="ex-head"><span class="logo-mark" aria-hidden="true">${LOGO_MARK_INV}</span><b>${t.exKb}</b><span class="id">CNC-003</span><span class="tag">${t.exTag}</span></div>
           <div class="ex-sec"><p class="lbl">${t.ex.parts}</p><p class="val">${t.ex.part}</p><div class="chips">${chip(t.ex.partSrc)}${chip(t.ex.partWarn, 'chip-warn')}</div></div>
           <div class="ex-sec"><p class="lbl">${t.ex.hist}</p><p class="val"><span class="date">${t.ex.date}</span>${t.ex.change}</p><div class="chips">${chip(t.ex.histSrc)}<span class="chip chip-plain">${t.ex.approved}</span></div></div>
           <div class="ex-sec"><p class="lbl">${t.ex.contact}</p><p class="person"><span class="av">AW</span><span><b>A. Weber</b> · ${t.ex.role}</span></p></div>
