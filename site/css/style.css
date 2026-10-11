@@ -351,11 +351,13 @@ a:hover { text-decoration-thickness: 2px; }
   paint-order: stroke; stroke: var(--bg); stroke-width: 5px; stroke-linejoin: round;
 }
 /* Schmale Fassung: größere Schrift, damit sie bei 320 px noch mindestens 11 bis 12 px misst */
-.net-narrow .net-labels text { font-size: 15px; }
-.net-narrow .chip text { font-size: 15px; }
+/* Schmale Fassung (340 × 272, etwa halb so hoch wie die breite): Schrift so groß, dass sie bei 320 px
+   (Maßstab 0,8) noch mindestens 11 px misst */
+.net-narrow .net-labels text { font-size: 14px; }
+.net-narrow .chip text { font-size: 14px; }
 .net-narrow .plate-kind { font-size: 14px; }
-.net-narrow .plate-id { font-size: 22px; }
-.net-narrow .plate-id-s { font-size: 17px; }
+.net-narrow .plate-id { font-size: 20px; }
+.net-narrow .plate-id-s { font-size: 16px; }
 .net-labels .net-label-teal { fill: var(--teal); }
 .chip rect { fill: var(--surface); stroke: var(--border-strong); stroke-width: 1; }
 .chip text { font: 500 14px var(--font-sans); fill: var(--text-head); }
@@ -476,7 +478,7 @@ html:not(.js) .ask-more { display: none; }   /* ohne JS keine toten Beispiel-But
   opacity: 0; transition: opacity 0.2s ease;
 }
 .table-wrap.can-scroll::after { opacity: 1; }
-@media (max-width: 807px) { html:not(.js) .table-wrap::after { opacity: 1; } }
+@media (min-width: 700px) and (max-width: 807px) { html:not(.js) .table-wrap::after { opacity: 1; } }
 .table-scroll:focus-visible { outline-offset: 4px; }
 .compare { width: 100%; min-width: 680px; border-collapse: separate; border-spacing: 0; text-align: left; }
 .compare th, .compare td { padding: 15px 20px; vertical-align: top; border-bottom: 1px solid var(--rule); }
@@ -791,3 +793,142 @@ ol.steps {
 /* Ein Stichwort je Abschnittsüberschrift in Blau, wie die Hero-Zeile */
 .h-section .hl { color: var(--blue); }
 @media print { .h-section .hl { color: #000; } }
+
+/* ==========================================================================
+   Mobil (unter 700 px, Sticky-Leiste unter 900 px). Desktop bleibt unverändert.
+   ========================================================================== */
+
+/* Kopf flacher: 56 statt 72 px; Sprungmarken ziehen über --header-h mit */
+@media (max-width: 699px) {
+  :root { --header-h: 56px; }
+}
+
+/* Vergleichstabelle als Karten: echte <table> mit expliziten Rollen, nur die Darstellung wechselt.
+   Spaltenköpfe sind ausgeblendet; die Spaltennamen stehen als data-label über jeder Zelle
+   (für Screenreader stumm, die Rollen liefern die Zuordnung). */
+@media (max-width: 699px) {
+  .table-scroll { overflow: visible; border-radius: 0; }
+  .table-wrap::after { display: none; }
+  .compare, .compare tbody, .compare tr, .compare th, .compare td { display: block; }
+  .compare { min-width: 0; }
+  .compare thead {
+    position: absolute; width: 1px; height: 1px; overflow: hidden;
+    clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap;
+  }
+  .compare tbody { display: grid; gap: 12px; }
+  .compare tbody tr {
+    border: 1px solid var(--border-strong); border-radius: var(--radius);
+    background: var(--surface); overflow: hidden;
+  }
+  .compare tbody th { width: auto; padding: 14px 16px 4px; border: 0; font-size: 16px; }
+  .compare td, .compare .col-today, .compare .col-rt { width: auto; padding: 6px 16px 10px 42px; border: 0; font-size: 15.5px; line-height: 1.5; }
+  .compare td::before {
+    content: attr(data-label) ":";
+    content: attr(data-label) ":" / "";
+    display: inline-block; margin-right: 6px; white-space: nowrap;   /* als Block: Umbruch danach möglich, Label selbst bricht nie */
+    font-weight: 600; color: var(--muted);
+  }
+  .compare .col-rt { padding-top: 10px; padding-bottom: 12px; border-top: 1px solid #2A3550; }
+  .compare .col-rt::before { color: var(--blue); }
+  .compare tbody tr:last-child td.col-rt { border-radius: 0; border-bottom: 0; }
+  .compare td svg { left: 16px; top: 10px; }
+  .compare .col-rt svg { top: 14px; }
+}
+
+/* Netzgrafik: schmale, kompakte Fassung (siehe oben) */
+
+/* Nutzen-Karten kompakter: Icon neben dem Titel, Zahl kleiner und neben der Aussage, engere Abstände */
+@media (max-width: 599px) {
+  .benefits { gap: 12px; }
+  .benefit {
+    grid-template-columns: 40px 76px minmax(0, 1fr);   /* Faktspalte in allen Karten an derselben Stelle */
+    grid-template-rows: none;
+    grid-template-areas: "icon title title" "text text text" "num num fact" "num num src";
+    column-gap: 0;
+    padding: 18px 18px 14px;
+  }
+  .benefit-icon { grid-area: icon; width: 40px; height: 40px; }
+  .benefit-icon svg { width: 22px; height: 22px; }
+  .benefit h3 { grid-area: title; align-self: center; margin-top: 0; padding-left: 14px; font-size: 24px; }
+  .benefit-text { grid-area: text; margin-top: 10px; }
+  .benefit-num, .benefit-fact { margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--card-border); }
+  .benefit-num { grid-area: num; padding-right: 16px; font-size: 36px; }
+  .benefit-fact { grid-area: fact; align-self: start; font-size: 14.5px; line-height: 1.45; }
+  .benefit-src { grid-area: src; margin-top: 2px; }
+}
+
+/* Beispielfragen als waagerecht wischbare Leiste über der Beispielkarte */
+@media (max-width: 699px) {
+  .ask-more { margin-top: 20px; }
+  ul.ask-chips {
+    display: flex; gap: 8px; max-width: none;
+    margin-inline: calc(-1 * var(--gutter));
+    padding: 2px var(--gutter) 6px;
+    overflow-x: auto; overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory; scroll-padding-inline: var(--gutter);
+    scrollbar-width: none;
+  }
+  .ask-chips::-webkit-scrollbar { display: none; }
+  .ask-chips li { flex: 0 0 auto; width: min(250px, 72vw); scroll-snap-align: start; }
+  .q-chip { border-radius: 14px; }
+  .split-fragen { gap: 20px; }
+}
+
+/* Kontaktkarte: Adresse volle Breite, Kopieren kompakt rechts in derselben Zeile */
+.btn-copy[hidden] { display: none; }
+.icon-copy { display: none; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linejoin: round; }
+@media (max-width: 699px) {
+  .email-row { flex-wrap: nowrap; gap: 8px; padding-left: 12px; }
+  .email { flex: 1 1 auto; min-width: 0; font-size: 13.5px; }
+  .btn-copy { padding: 0 12px; font-size: 14px; }
+}
+@media (max-width: 399px) {
+  .contact-plate { padding-inline: 20px; }
+  .email { font-size: 13px; }
+  .btn-copy { padding: 0 10px; }
+}
+@media (max-width: 359px) {
+  .contact-plate { padding-inline: 16px; }
+  .email-row { gap: 6px; padding-left: 10px; }
+  .email { font-size: 12.5px; }
+}
+/* Unter 320 px (z. B. starker Zoom): Adresse umbrechen statt abschneiden, Knopf darunter */
+@media (max-width: 319px) {
+  .email-row { flex-wrap: wrap; }
+  .email { flex-basis: 100%; white-space: normal; overflow-wrap: anywhere; padding-block: 8px 2px; }
+}
+/* Sehr schmal: Kopieren nur als Symbol (Name bleibt für Screenreader erhalten) */
+@media (max-width: 374px) {
+  .btn-copy { display: inline-grid; place-items: center; padding: 0; width: 44px; }
+  .icon-copy { display: block; }
+  .btn-copy-label {
+    position: absolute; width: 1px; height: 1px; overflow: hidden;
+    clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap;
+  }
+}
+
+/* Sticky-CTA unten: nur unter 900 px (dort steckt der Kopf-Knopf im Menü) und nur mit JS.
+   Erscheint, wenn der Hero-Knopf aus dem Bild ist, verschwindet am Kontakt-Abschnitt. */
+.sticky-cta[hidden] { display: none; }
+.sticky-cta {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 40;
+  padding: 10px var(--gutter) calc(10px + env(safe-area-inset-bottom, 0px));
+  background: rgb(16 19 23 / 0.96);
+  border-top: 1px solid var(--rule);
+  box-shadow: 0 -12px 28px rgb(0 0 0 / 0.35);
+  transform: translateY(110%);
+  visibility: hidden;
+  transition: transform 0.22s ease, visibility 0s linear 0.22s;
+}
+.sticky-cta.is-visible { transform: none; visibility: visible; transition: transform 0.22s ease, visibility 0s; }
+.sticky-cta .btn { display: flex; width: 100%; min-height: 48px; }
+/* Fokus nie unter der Leiste (WCAG 2.4.11): Platz unten beim Scrollen in den sichtbaren Bereich */
+html.has-sticky-cta { scroll-padding-bottom: calc(84px + env(safe-area-inset-bottom, 0px)); }
+html.has-sticky-cta :is(a, button, textarea, input, [tabindex]) { scroll-margin-bottom: calc(84px + env(safe-area-inset-bottom, 0px)); }
+@media (min-width: 900px), (max-height: 500px) {
+  .sticky-cta { display: none; }
+}
+@media print {
+  .sticky-cta { display: none !important; }
+  .ask-input { height: auto !important; }
+}

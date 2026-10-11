@@ -3,6 +3,8 @@
 (function () {
   "use strict";
 
+  var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
   /* Texte je Seitensprache (<html lang="de"> bzw. "en-GB") */
   var EN = /^en\b/i.test(document.documentElement.lang);
   var TXT = EN
@@ -151,8 +153,109 @@
         });
         var count = shown ? shown.querySelector(".ask-count").textContent.replace(/\s+/g, " ").trim() : "";
         askLive.textContent = TXT.question + q + " " + count + ".";
+        revealChip(chip);
       });
     });
+
+    // Schmal: Fragen liegen in einer waagerecht wischbaren Leiste; die gewählte wird ganz sichtbar gemacht
+    // (nur die Leiste scrollt, nicht die Seite).
+    var chipBar = chips[0].closest(".ask-chips");
+    var revealChip = function (chip) {
+      if (!chipBar || chipBar.scrollWidth <= chipBar.clientWidth + 1) return;
+      var li = chip.parentNode;
+      var pad = parseFloat(getComputedStyle(chipBar).paddingLeft) || 0;
+      var left = li.offsetLeft - chipBar.offsetLeft;
+      var view = chipBar.scrollLeft;
+      if (left - pad < view || left + li.offsetWidth > view + chipBar.clientWidth - pad) {
+        chipBar.scrollTo({ left: Math.max(0, left - pad), behavior: reduceMotion.matches ? "auto" : "smooth" });
+      }
+    };
+
+    // Schmal: Suchfeld so hoch wie die längste Frage bei der aktuellen Breite (keine leere Zeile,
+    // kein Springen beim Wechsel). Ab 700 px gilt die Höhe aus dem CSS unverändert.
+    var narrowMq = window.matchMedia("(max-width: 699px)");
+    var fitAsk = function () {
+      if (!narrowMq.matches) { askInput.style.removeProperty("height"); return; }
+      var current = askInput.value;
+      askInput.style.height = "0px";
+      var max = 0;
+      chips.forEach(function (c) {
+        askInput.value = c.textContent;
+        max = Math.max(max, askInput.scrollHeight);
+      });
+      askInput.value = current;
+      var cs = getComputedStyle(askInput);
+      askInput.style.height = (max + parseFloat(cs.borderTopWidth) + parseFloat(cs.borderBottomWidth)) + "px";
+    };
+    var fitTick = false, fitW = window.innerWidth;
+    var onFit = function () {
+      if (fitTick) return;
+      fitTick = true;
+      requestAnimationFrame(function () { fitTick = false; fitAsk(); });
+    };
+    // nur neu rechnen, wenn sich die Breite ändert (nicht bei Höhenänderungen, z. B. Adressleiste)
+    window.addEventListener("resize", function () {
+      if (window.innerWidth === fitW) return;
+      fitW = window.innerWidth;
+      onFit();
+    });
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(onFit);
+    fitAsk();
+
+    // Per Tastatur fokussierte Frage in der Leiste ganz sichtbar machen
+    if (chipBar) chipBar.addEventListener("focusin", function (e) {
+      var c = e.target.closest(".q-chip");
+      if (c) revealChip(c);
+    });
+  }
+
+  /* ---------- Sticky-Knopf unten (nur unter 900 px und ab 501 px Höhe) ----------
+     Erscheint, wenn der Hero-Knopf nach oben aus dem Bild (unter den Kopf) gescrollt ist, und verschwindet,
+     sobald der Kontakt-Abschnitt erreicht ist oder das Menü offen ist. Ausgeblendet: inert und aria-hidden. */
+  var sticky = document.querySelector(".sticky-cta");
+  var heroBtn = document.querySelector(".hero-actions .btn-primary");
+  var stickyLink = sticky && sticky.querySelector("a");
+  var contact = stickyLink && document.getElementById(stickyLink.getAttribute("href").slice(1));
+  var stickyMq = window.matchMedia("(max-width: 899px) and (min-height: 501px)");
+  if (sticky && heroBtn && contact && "IntersectionObserver" in window) {
+    sticky.hidden = false;
+    var heroPast = false, contactReached = false, stickyOn = false;
+    var header = document.querySelector(".site-header");
+    var setSticky = function () {
+      var menuOpen = toggle && toggle.getAttribute("aria-expanded") === "true";
+      var show = stickyMq.matches && heroPast && !contactReached && !menuOpen;
+      stickyOn = show;
+      sticky.classList.toggle("is-visible", show);
+      sticky.inert = !show;
+      if (show) sticky.removeAttribute("aria-hidden");
+      else sticky.setAttribute("aria-hidden", "true");
+      if (!show && sticky.contains(document.activeElement)) document.activeElement.blur();
+      document.documentElement.classList.toggle("has-sticky-cta", show);
+    };
+    new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { heroPast = !e.isIntersecting && e.boundingClientRect.bottom < e.rootBounds.top + 1; });
+      setSticky();
+    }, { rootMargin: "-" + (header ? header.offsetHeight : 0) + "px 0px 0px 0px" }).observe(heroBtn);
+    new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { contactReached = e.isIntersecting || e.boundingClientRect.top < 0; });
+      setSticky();
+    }).observe(contact);
+    if (stickyMq.addEventListener) stickyMq.addEventListener("change", setSticky);
+    if (toggle && "MutationObserver" in window) {
+      new MutationObserver(setSticky).observe(toggle, { attributes: true, attributeFilter: ["aria-expanded"] });
+    }
+    // Fokus nie unter der Leiste: falls das Fokusziel (z. B. in der waagerechten Fragen-Leiste) trotzdem
+    // darunter liegt, die Seite um den fehlenden Betrag nachschieben.
+    document.addEventListener("focusin", function (e) {
+      if (!stickyOn || sticky.contains(e.target)) return;
+      requestAnimationFrame(function () {
+        if (!stickyOn) return;
+        var limit = sticky.getBoundingClientRect().top - 8;
+        var r = e.target.getBoundingClientRect();
+        if (r.bottom > limit) window.scrollBy({ top: r.bottom - limit, behavior: "instant" });
+      });
+    });
+    setSticky();
   }
 
   /* ---------- Vergleichstabelle: nur scrollbar beschriften, wenn sie es ist ---------- */
